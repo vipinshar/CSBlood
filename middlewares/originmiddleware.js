@@ -1,7 +1,7 @@
 module.exports = function (router) {
     router.use(function (req, res, next) {
         debugger;
-        var whitelist = 'blooddonation.cybersipahi.org'
+        var whitelist = 'blooddonation.cybersipahi.org';
         console.log(req.hostname+"Viin");
         if (req.hostname == whitelist) {
             next();
