@@ -10,7 +10,7 @@ var users = require('./routes/users');
 var dbd= require('./config/database');
 
 var app = express();
-
+var router = express.Router();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 var load_routes= require('./utils/register_routes')(app,express);
 app.use('/', index);

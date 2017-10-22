@@ -5,9 +5,9 @@ let appConstant = require('../../config/constant');
 let resp_hendler = new ref_resp_handler();
 module.exports = function (app, express) {
     let router = express.Router();
+    let middleware= require('../../middlewares/originmiddleware')(router);
+
     router.post('/save', (req, res) => {
-        console.log('POST Request');
-     
         member.SaveData(req.body).then(response => {
             resp_hendler.response(res, appConstant.RESPONSE_ENUM.SUCCESS, appConstant.RESPONSE_ENUM.IS_Success,
                 appConstant.RESPONSE_ENUM.Success_Message, appConstant.Version, response);
