@@ -6,9 +6,9 @@ let MemberModel = new schema({
     _id: { type: schema.Types.ObjectId },
     title: String,
     Name: String,
-    Gender: Number,
+    Gender: String,
     Age: Number,
-    BG: Number,
+    BG: String,
     ContactNumber: {
         type: String,
         validate: {
@@ -36,7 +36,7 @@ let MemberModel = new schema({
     State: String,
     City: String,
     PermanentAddress: String,
-    LastDobated: Date
+    LastDobated: { type: Date }
 });
 
 let _MemberModel = mong.model("Members", MemberModel);

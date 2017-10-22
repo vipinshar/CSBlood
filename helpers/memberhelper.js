@@ -33,6 +33,18 @@ let register = {
                 }
             });
         });
+    },
+    GetAll: function () {
+        return new Promise((resolve, reject) => {
+           
+            member.find({},(err,data)=>{
+                if(err){
+                    reject(err);
+                }else{
+                    resolve(data);
+                }
+            });
+        });
     }
 };
 
