@@ -7,9 +7,7 @@ module.exports = function (router) {
         if (req.hostname == whitelist) {
             next();
         } else {
-            router.send(401);
+            res.send(401);
         }
-
-
     });
 }
