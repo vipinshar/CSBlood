@@ -7,7 +7,7 @@ let MemberModel = new schema({
     title: String,
     Name: String,
     Gender: String,
-    Age: Number,
+    Age: String,
     BG: String,
     ContactNumber: {
         type: String,

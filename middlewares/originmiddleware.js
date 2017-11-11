@@ -1,16 +1,20 @@
-module.exports = function (router) {
-    router.use(function (req, res, next) {
-        debugger;
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
-        res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-        var whitelist = 'blooddonation.cybersipahi.org';
+module.exports = function (router,app) {
+    app.use(function (req, res, next) {
+     
+            // Website you wish to allow to connect
+           res.header('Access-Control-Allow-Origin', '*');
         
-        next();
-        // if (req.hostname == whitelist) {
-        //     next();
-        // } else {
-        //     res.send(401);
-        // }
-    });
+            // Request methods you wish to allow
+            res.header('Access-Control-Allow-Methods', 'GET, POST');
+        
+            // Request headers you wish to allow
+             res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        
+            // Set to true if you need the website to include cookies in the requests sent
+            // to the API (e.g. in case you use sessions)
+            //res.setHeader('Access-Control-Allow-Credentials', true);
+        
+            // Pass to next layer of middleware
+            next();
+        });
 }
