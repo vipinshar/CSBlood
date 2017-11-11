@@ -36,11 +36,34 @@ let register = {
     },
     GetAll: function () {
         return new Promise((resolve, reject) => {
-           
             member.find({},(err,data)=>{
                 if(err){
                     reject(err);
                 }else{
+                    resolve(data);
+                }
+            });
+        });
+    },
+    GetByUserId: function (id) {
+        return new Promise((resolve, reject) => {
+            member.find({_id:id}, (err, data) => {
+                if(err){
+                    reject(err);
+                }else{
+                    resolve(data);
+                }
+            });
+        });
+    },
+    UpdateUser: function (user) {
+        debugger;
+        return new Promise((resolve, reject) => {
+            member.findOneAndUpdate({ _id: user._id }, user, (err, data) => {
+                debugger;
+                if (err) {
+                    reject(err);
+                } else {
                     resolve(data);
                 }
             });

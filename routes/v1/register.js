@@ -29,5 +29,29 @@ module.exports = function (app, express) {
                 "Failure", appConstant.Version, error);
         });
     });
+
+    router.get('/donors/:id',(req,res)=>{
+        member.GetByUserId(req.params.id).then(response=>{
+            resp_hendler.response(res, appConstant.RESPONSE_ENUM.SUCCESS, appConstant.RESPONSE_ENUM.IS_Success,
+                appConstant.RESPONSE_ENUM.Success_Message, appConstant.Version, response);
+        }).catch(error => {
+            console.log(error);
+            resp_hendler.response(res, appConstant.RESPONSE_ENUM.EXCEPTION, appConstant.RESPONSE_ENUM.Fail_Success,
+                "Failure", appConstant.Version, error);
+        });
+    });
+
+    router.put('/donors',(req,res)=>{
+        debugger;
+        member.UpdateUser(req.body).then(response=>{
+            resp_hendler.response(res, appConstant.RESPONSE_ENUM.SUCCESS, appConstant.RESPONSE_ENUM.IS_Success,
+                appConstant.RESPONSE_ENUM.Success_Message, appConstant.Version, response);
+        }).catch(error=>{
+            console.log(error);
+            resp_hendler.response(res, appConstant.RESPONSE_ENUM.EXCEPTION, appConstant.RESPONSE_ENUM.Fail_Success,
+                "Failure", appConstant.Version, error);
+        });
+    });
+
     return router;
 }
