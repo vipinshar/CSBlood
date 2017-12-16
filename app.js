@@ -12,7 +12,7 @@ var dbd= require('./config/database');
 
 var app = express();
 var router = express.Router();
-// view engine setup
+// view engine setup for aplication
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
