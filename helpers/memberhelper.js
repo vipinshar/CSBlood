@@ -22,7 +22,8 @@ let register = {
                 State: model.State,
                 City: model.City,
                 PermanentAddress: model.PermanentAddress,
-                LastDobated: model.Date
+                LastDobated: model.Date,
+                CreatedDate: Date.now
             });
             member_model.save((err, result) => {
                 if (err) {
@@ -36,10 +37,10 @@ let register = {
     },
     GetAll: function () {
         return new Promise((resolve, reject) => {
-            member.find({},(err,data)=>{
-                if(err){
+            member.find({}, (err, data) => {
+                if (err) {
                     reject(err);
-                }else{
+                } else {
                     resolve(data);
                 }
             });
@@ -47,10 +48,10 @@ let register = {
     },
     GetByUserId: function (id) {
         return new Promise((resolve, reject) => {
-            member.find({_id:id}, (err, data) => {
-                if(err){
+            member.find({ _id: id }, (err, data) => {
+                if (err) {
                     reject(err);
-                }else{
+                } else {
                     resolve(data);
                 }
             });
