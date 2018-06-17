@@ -1,7 +1,6 @@
 let member = require('../../helpers/memberhelper');
 let ref_resp_handler = require('../../utils/custom_response');
 let appConstant = require('../../config/constant');
-
 let resp_hendler = new ref_resp_handler();
 module.exports = function (app, express) {
     let router = express.Router();
