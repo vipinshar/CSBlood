@@ -37,7 +37,7 @@ let MemberModel = new schema({
     City: String,
     PermanentAddress: String,
     LastDobated: { type: Date },
-    CreatedDate: { type: Date, default: Date.now }
+    CreatedDate: { type: Date, default: Date.now() }
 });
 
 let _MemberModel = mong.model("Members", MemberModel);

@@ -23,7 +23,7 @@ let register = {
                 City: model.City,
                 PermanentAddress: model.PermanentAddress,
                 LastDobated: model.Date,
-                CreatedDate: Date.now
+                CreatedDate: Date.now()
             });
             member_model.save((err, result) => {
                 if (err) {
